@@ -624,32 +624,45 @@ function searchQuery() {
     // append h1 test
 
     function displayTweets() {
-      console.log("test")
-      let tweetResults = document.getElementById("search-results")
-      tweetElement = document.createElement("div")
-      tweetElement.className = "col-sm-4"
-      let tweetCard = document.createElement("div")
-      tweetCard.className = "card bg-success mb-3"
-      let cardHeader = document.createElement("div")
-      cardHeader.className = "card-header"
-      cardHeader.innerHTML = "Neutral"
-      let cardBody = document.createElement("div")
-      cardBody.className = "card-body"
-      let cardTitle = document.createElement("div")
-      cardTitle.className = "card-title"
-      cardTitle.innerHTML = "User 1"
-      let cardText = document.createElement("div")
-      cardText.className = "card-text"
-      cardText.innerHTML = "tweet.text"
+      for (idx in response.data) {
+        const tweet = response.data[idx]
+        console.log(tweet)
+        let tweetResults = document.getElementById("search-results")
+        tweetElement = document.createElement("div")
+        //tweetElement.className = "col-sm-4"
+        let tweetCard = document.createElement("div")
+
+        if(tweet["sentiment_status"] === "positive") {
+          tweetCard.className = "card bg-success"
+        }
+        else if (tweet["sentiment_status"] === "negative") {
+          tweetCard.className = "card bg-danger "
+        }
+        else {
+          tweetCard.className = "card bg-light "
+        }
 
 
-      cardBody.appendChild(cardTitle)
-      tweetCard.appendChild(cardHeader)
-      tweetCard.appendChild(cardBody)
-      cardBody.appendChild(cardText)
-      tweetElement.appendChild(tweetCard)
-      tweetResults.appendChild(tweetElement)
+        let cardHeader = document.createElement("div")
+        cardHeader.className = "card-header"
+        cardHeader.innerHTML = tweet["sentiment_status"]
+        let cardBody = document.createElement("div")
+        cardBody.className = "card-body"
+        let cardTitle = document.createElement("div")
+        cardTitle.className = "card-title"
+        cardTitle.innerHTML = tweet["user"]
+        let cardText = document.createElement("div")
+        cardText.className = "card-text"
+        cardText.innerHTML = tweet["text"]
 
+
+        cardBody.appendChild(cardTitle)
+        tweetCard.appendChild(cardHeader)
+        tweetCard.appendChild(cardBody)
+        cardBody.appendChild(cardText)
+        tweetElement.appendChild(tweetCard)
+        tweetResults.appendChild(tweetElement)
+      }
 
     //  neutral = light, negative = danger, positive = success
 
