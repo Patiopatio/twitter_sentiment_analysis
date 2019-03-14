@@ -1,4 +1,5 @@
 # Twitter Sentiment Analysis
+TODO
 
 ## Get Started
 
@@ -6,7 +7,7 @@
 TODO
 
 ### Backend
-Run ```bash ./start_server.sh``` for running flask server in virtual environment.
+Run ```./start_server.sh``` for running flask server in virtual environment.
 
 ## Usage
 You can call
