@@ -608,5 +608,49 @@ function searchQuery() {
   let tweetValue = document.getElementById("search-input").value
   console.log(tweetValue)
   console.log(response.count)
-
+  displayTweets()
+  // 1. call funct displayTweets
 }
+
+
+// 1. function displayTweets()
+  // DELETE ME console log
+  // 4. for alll response.data
+    // 3. create div with
+      // 3.1 color (neutral=light, negative=danger, ..)
+      // 3.2 header username
+      // 3.3 content = tweet.text
+    // 2. append div to row id =TODO
+    // append h1 test
+
+    function displayTweets() {
+      console.log("test")
+      let tweetResults = document.getElementById("search-results")
+      tweetElement = document.createElement("div")
+      tweetElement.className = "col-sm-4"
+      let tweetCard = document.createElement("div")
+      tweetCard.className = "card bg-success mb-3"
+      let cardHeader = document.createElement("div")
+      cardHeader.className = "card-header"
+      cardHeader.innerHTML = "Neutral"
+      let cardBody = document.createElement("div")
+      cardBody.className = "card-body"
+      let cardTitle = document.createElement("div")
+      cardTitle.className = "card-title"
+      cardTitle.innerHTML = "User 1"
+      let cardText = document.createElement("div")
+      cardText.className = "card-text"
+      cardText.innerHTML = "tweet.text"
+
+
+      cardBody.appendChild(cardTitle)
+      tweetCard.appendChild(cardHeader)
+      tweetCard.appendChild(cardBody)
+      cardBody.appendChild(cardText)
+      tweetElement.appendChild(tweetCard)
+      tweetResults.appendChild(tweetElement)
+
+
+    //  neutral = light, negative = danger, positive = success
+
+    }
