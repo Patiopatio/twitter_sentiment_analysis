@@ -6,3 +6,4 @@ ipython kernel install --user --name=venv;
 pip install tweepy;
 pip install textblob;
 pip install flask;
+pip install flask-cors;

@@ -1,7 +1,9 @@
 from flask import Flask, request, render_template, jsonify
+from flask_cors import CORS
 from twitter_client import TwitterClient
 
 app = Flask(__name__)
+CORS(app)
 api = TwitterClient()
 
 @app.route('/')
