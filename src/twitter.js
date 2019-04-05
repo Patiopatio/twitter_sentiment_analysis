@@ -8,7 +8,7 @@ function searchQuery() {
 }
 
 function getTweets(tweetValue) {
-  url = 'http://localhost:5001/tweets?query='+tweetValue
+  url = 'https://tsaa.herokuapp.com/tweets?query='+tweetValue
   $.ajax({
     url:url,
     dataType:'json',
